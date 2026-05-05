@@ -25,7 +25,20 @@ This lets you give the agent "live" context from specific points in your convers
 - **Right Panel** — shows all currently marked messages, click "Clear All Marks" to reset
 - **Auto-Inject** — on next send, all marked context is appended to your message automatically via WebSocket interception
 
-## How to Install
+## Quick Install (one command)
+
+```bash
+curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-at-plugin/main/install.sh" | bash
+```
+
+This will:
+1. Find your OpenClaw `dist/control-ui/` directory
+2. Download the plugin file into it
+3. Inject the `<script>` tag into `index.html`
+
+Then restart OpenClaw gateway to take effect.
+
+## Manual Install
 
 ### Step 1: Find your OpenClaw dist directory
 
@@ -34,10 +47,11 @@ OPENCLAW_DIST=$(npm root -g)/openclaw/dist/control-ui
 echo "Plugin destination: $OPENCLAW_DIST"
 ```
 
-### Step 2: Copy the plugin file
+### Step 2: Download the plugin file
 
 ```bash
-cp openclaw-at-plugin.js "$OPENCLAW_DIST/"
+curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js" \
+  "https://raw.githubusercontent.com/TinaQian2017/openclaw-at-plugin/main/openclaw-at-plugin.js"
 ```
 
 ### Step 3: Inject the script tag into index.html
@@ -57,6 +71,7 @@ Restart the gateway to load the updated Control UI.
 
 ```
 openclaw-at-plugin.js   — The plugin (single file, no dependencies)
+install.sh              — One-command installer
 README.md               — This file
 ```
 
@@ -66,7 +81,7 @@ This plugin runs entirely in your browser. It does not send any data to external
 
 ## Known Limitations
 
-- The plugin file in `dist/control-ui/` is overwritten on OpenClaw updates. Keep a backup and re-copy after updating.
+- The plugin file in `dist/control-ui/` is overwritten on OpenClaw updates. Run the install command again after updating.
 - Long messages without spaces may overflow the chat area (CSS `overflow-x: auto` is applied for scroll).
 - Currently designed for the OpenClaw Control UI only; other UI surfaces may not support the DOM structure this plugin relies on.
 
