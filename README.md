@@ -57,11 +57,13 @@ curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js" \
 ### Step 3: Inject the script tag into index.html
 
 ```bash
-sed -i 's|<script src="./openclaw-at-plugin.js"></script><script>|<script src="./openclaw-at-plugin.js"></script><script>|' "$OPENCLAW_DIST/index.html" 2>/dev/null || \
-sed -i 's|<script>|<script src="./openclaw-at-plugin.js"></script><script>|' "$OPENCLAW_DIST/index.html"
+if grep -q 'openclaw-at-plugin.js' "$OPENCLAW_DIST/index.html"; then
+  echo "Script tag already present — skipping."
+else
+  sed -i 's|<script|<script src="./openclaw-at-plugin.js"></script><script|' \
+    "$OPENCLAW_DIST/index.html"
+fi
 ```
-
-> If the script tag was already injected, running this again is safe — it won't add duplicates.
 
 ### Step 4: Restart OpenClaw
 
