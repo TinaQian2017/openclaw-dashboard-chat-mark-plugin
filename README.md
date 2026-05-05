@@ -8,13 +8,12 @@ When you're in a long conversation with an agent, sometimes you want to referenc
 
 When you send a new message, all marked messages are automatically prepended to your input as a code block, formatted like this:
 
-\`\`\`
+```
 === Marked Context (selected by user) ===
 <<USER>>
 the user's original message
 <<AGENT>>
 the agent's original response
-```
 ```
 
 This lets you give the agent "live" context from specific points in your conversation without copy-pasting manually.
@@ -28,25 +27,29 @@ This lets you give the agent "live" context from specific points in your convers
 
 ## How to Install
 
-### Step 1: Copy the plugin file
-
-Copy `openclaw-at-plugin.js` into your OpenClaw `dist/control-ui/` directory:
+### Step 1: Find your OpenClaw dist directory
 
 ```bash
-cp openclaw-at-plugin.js /usr/local/lib/node_modules/openclaw/dist/control-ui/
+OPENCLAW_DIST=$(npm root -g)/openclaw/dist/control-ui
+echo "Plugin destination: $OPENCLAW_DIST"
 ```
 
-> Note: This directory may be overwritten on OpenClaw updates. Keep a backup of this file and re-copy after updates.
+### Step 2: Copy the plugin file
 
-### Step 2: Reference it in index.html
-
-Add this line inside the `<head>` tag of `dist/control-ui/index.html`, **before** the main module script:
-
-```html
-<script src="./openclaw-at-plugin.js"></script>
+```bash
+cp openclaw-at-plugin.js "$OPENCLAW_DIST/"
 ```
 
-### Step 3: Restart OpenClaw
+### Step 3: Inject the script tag into index.html
+
+```bash
+sed -i 's|<script src="./openclaw-at-plugin.js"></script><script>|<script src="./openclaw-at-plugin.js"></script><script>|' "$OPENCLAW_DIST/index.html" 2>/dev/null || \
+sed -i 's|<script>|<script src="./openclaw-at-plugin.js"></script><script>|' "$OPENCLAW_DIST/index.html"
+```
+
+> If the script tag was already injected, running this again is safe — it won't add duplicates.
+
+### Step 4: Restart OpenClaw
 
 Restart the gateway to load the updated Control UI.
 
