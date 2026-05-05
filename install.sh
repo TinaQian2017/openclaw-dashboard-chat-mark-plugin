@@ -24,7 +24,6 @@ INDEX="$DIST_DIR/index.html"
 if grep -q 'openclaw-at-plugin.js' "$INDEX"; then
   echo "Script tag already present in index.html — skipping injection."
 else
-  # Match the first <script> tag and insert our script before it
   sed -i 's|<script|<script src="./openclaw-at-plugin.js"></script><script|' "$INDEX"
   echo "Script tag injected into: $INDEX"
 fi
