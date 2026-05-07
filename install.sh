@@ -25,7 +25,7 @@ else
 fi
 
 echo "Downloading plugin from: $PLUGIN_URL"
-curl -sL -o $$DIST_DIR/openclaw-at-plugin.js" "$PLUGIN_URL"
+curl -sL -o "$DIST_DIR/openclaw-at-plugin.js" "$PLUGIN_URL"
 echo "Plugin copied to: $DIST_DIR/openclaw-at-plugin.js"
 
 # Inject script tag into index.html
