@@ -1,0 +1,22 @@
+{
+  "name": "openclaw-at-plugin",
+  "version": "1.0.0",
+  "description": "Mark and inject selected chat messages as context into OpenClaw conversations",
+  "main": "openclaw-at-plugin.js",
+  "scripts": {
+    "install": "bash install.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TinaQian2017/openclaw-at-plugin"
+  },
+  "keywords": [
+    "openclaw",
+    "plugin",
+    "chat",
+    "context"
+  ],
+  "author": "Yue Qian",
+  "license": "MIT",
+  "engines": {}
+}
