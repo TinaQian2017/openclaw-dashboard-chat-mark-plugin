@@ -1,7 +1,11 @@
 #!/bin/bash
 set -e
 
+VERSION="${VERSION:-main}"
+REPO="TinaQian2017/openclaw-at-plugin"
+
 echo "=== OpenClaw @ Plugin Installer ==="
+echo "Version: $VERSION"
 
 # Find OpenClaw dist directory
 DIST_DIR=$(npm root -g 2>/dev/null)/openclaw/dist/control-ui
@@ -13,10 +17,15 @@ fi
 
 echo "Found OpenClaw dist at: $DIST_DIR"
 
-# Download openclaw-at-plugin.js
-PLUGIN_URL="https://raw.githubusercontent.com/TinaQian2017/openclaw-at-plugin/main/openclaw-at-plugin.js"
-echo "Downloading plugin from GitHub..."
-curl -s -o "$DIST_DIR/openclaw-at-plugin.js" "$PLUGIN_URL"
+# Determine download URL based on version
+if [ "$VERSION" = "main" ]; then
+  PLUGIN_URL="https://raw.githubusercontent.com/$REPO/main/openclaw-at-plugin.js"
+else
+  PLUGIN_URL="https://raw.githubusercontent.com/$REPO/$VERSION/openclaw-at-plugin.js"
+fi
+
+echo "Downloading plugin from: $PLUGIN_URL"
+curl -sL -o $$DIST_DIR/openclaw-at-plugin.js" "$PLUGIN_URL"
 echo "Plugin copied to: $DIST_DIR/openclaw-at-plugin.js"
 
 # Inject script tag into index.html
