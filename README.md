@@ -18,7 +18,7 @@ the user's original message
 the agent's original response
 ```
 
-This lets you give the agent "live" context from specific points in your conversation without copy-pasting manually.
+This lets you give the agent "live" context from specific points in your conversation without copy-pasting manually. Remember to use the `Clear All Marks` button when you do not need referral.
 
 ## How It Works
 
