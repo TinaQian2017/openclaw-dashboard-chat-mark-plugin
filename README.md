@@ -1,6 +1,6 @@
 # OpenClaw @ Plugin
 
-A browser-side plugin for OpenClaw Control UI that lets you mark individual chat messages as context and inject them into your conversations as reference material.
+A browser-side plugin for OpenClaw Control UI that lets you mark individual chat messages as context and inject them into your conversations as reference material. There is no risk of hurting your Openclaw by installing the plugin, so please feel free to try out! 
 
 <img width="1948" height="1064" alt="20260507230013" src="https://github.com/user-attachments/assets/33319660-06e4-49d2-b473-4fa4bdef51f8" />
 
@@ -70,19 +70,19 @@ fi
 
 Restart the gateway to load the updated Control UI.
 
-## Code Remove
+## Plugin Removal
 
-Removing the plugin follows the same steps as install but in reverse.
+Feel free to test the plugin and remove afterwards. Removing the plugin follows the same steps as install but in reverse.
 
 ```bash
-# Delete plugin file
-rm "$OPENCLAW_DIST/openclaw-at-plugin.js"
-
 # Remove script tag from index.html
 sed -i 's|<script src="./openclaw-at-plugin.js"></script>|{'   "$OPENCLAW_DIST/index.html"
+
+# Delete plugin file, this is optional
+rm "$OPENCLAW_DIST/openclaw-at-plugin.js"
 ```
 
-A little different: removed the file and removed the <script> tag. Then restart OpenClaw gateway.
+Then restart OpenClaw gateway.
 
 ## File Structure
 
