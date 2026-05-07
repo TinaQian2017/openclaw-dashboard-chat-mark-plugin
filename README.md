@@ -1,6 +1,6 @@
 # OpenClaw @ Plugin
 
-A browser-side plugin for OpenClaw Control UI that lets you mark individual chat messages as context and inject them into your conversations as reference material. There is no risk of hurting your Openclaw by installing the plugin, so please feel free to try out! 
+A browser-side plugin for OpenClaw Control UI that lets you mark individual chat messages as context and inject them into your conversations as reference material. There is no risk of hurting your OpenClaw by installing the plugin, so please feel free to try out! 
 
 <img width="1948" height="1064" alt="20260507230013" src="https://github.com/user-attachments/assets/33319660-06e4-49d2-b473-4fa4bdef51f8" />
 
@@ -31,7 +31,11 @@ This lets you give the agent "live" context from specific points in your convers
 ## Quick Install (one command)
 
 ```bash
+# Install latest version (main branch)
 curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-at-plugin/main/install.sh" | bash
+
+# Install a specific version (e.g., v1.0.0)
+VERSION=v1.0.0 curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-at-plugin/main/install.sh" | bash
 ```
 
 This will:
@@ -88,7 +92,9 @@ Then restart OpenClaw gateway.
 
 ```
 openclaw-at-plugin.js   — The plugin (single file, no dependencies)
-install.sh              — One-command installer
+install.sh              — One-command installer (supports VERSION= parameter)
+package.json            — Version and metadata
+CHANGELOG.md            — Version history
 README.md               — This file
 ```
 
@@ -105,3 +111,12 @@ This plugin runs entirely in your browser. It does not send any data to external
 ## License
 
 MIT — do whatever you want with it.
+
+## Versioning
+
+This project uses [Semantic Versioning](https://semver.org/):
+
+- **Latest (dev):** Install from `main` branch — may be unstable
+- **Releases:** Use `VERSION=v1.0.0` to install a specific released version
+
+See [CHANGELOG.md](./CHANGELOG.md) for version history.
