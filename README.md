@@ -53,8 +53,7 @@ echo "Plugin destination: $OPENCLAW_DIST"
 ### Step 2: Download the plugin file
 
 ```bash
-curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js" \
-  "https://raw.githubusercontent.com/TinaQian2017/openclaw-at-plugin/main/openclaw-at-plugin.js"
+curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js"   "https://raw.githubusercontent.com/TinaQian2017/openclaw-at-plugin/main/openclaw-at-plugin.js"
 ```
 
 ### Step 3: Inject the script tag into index.html
@@ -63,14 +62,27 @@ curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js" \
 if grep -q 'openclaw-at-plugin.js' "$OPENCLAW_DIST/index.html"; then
   echo "Script tag already present — skipping."
 else
-  sed -i 's|<script|<script src="./openclaw-at-plugin.js"></script><script|' \
-    "$OPENCLAW_DIST/index.html"
+  sed -i 's|<script|<script src="./openclaw-at-plugin.js"></script><script|'     "$OPENCLAW_DIST/index.html"
 fi
 ```
 
 ### Step 4: Restart OpenClaw
 
 Restart the gateway to load the updated Control UI.
+
+## Code Remove
+
+Removing the plugin follows the same steps as install but in reverse.
+
+```bash
+# Delete plugin file
+rm "$OPENCLAW_DIST/openclaw-at-plugin.js"
+
+# Remove script tag from index.html
+sed -i 's|<script src="./openclaw-at-plugin.js"></script>|{'   "$OPENCLAW_DIST/index.html"
+```
+
+A little different: removed the file and removed the <script> tag. Then restart OpenClaw gateway.
 
 ## File Structure
 
