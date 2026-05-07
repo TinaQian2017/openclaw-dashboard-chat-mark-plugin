@@ -2,6 +2,9 @@
 
 A browser-side plugin for OpenClaw Control UI that lets you mark individual chat messages as context and inject them into your conversations as reference material.
 
+<img width="1948" height="1064" alt="20260507230013" src="https://github.com/user-attachments/assets/33319660-06e4-49d2-b473-4fa4bdef51f8" />
+
+
 ## What It Does
 
 When you're in a long conversation with an agent, sometimes you want to reference specific earlier messages. This plugin adds a **@ button** to every message. Click it to **mark** that message for context. Selected messages get collected in a **Marked Context** panel on the right side of the screen.
