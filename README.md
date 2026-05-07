@@ -4,7 +4,6 @@ A browser-side plugin for OpenClaw Control UI that lets you mark individual chat
 
 <img width="1948" height="1064" alt="20260507230013" src="https://github.com/user-attachments/assets/33319660-06e4-49d2-b473-4fa4bdef51f8" />
 
-
 ## What It Does
 
 When you're in a long conversation with an agent, sometimes you want to reference specific earlier messages. This plugin adds a **@ button** to every message. Click it to **mark** that message for context. Selected messages get collected in a **Marked Context** panel on the right side of the screen.
@@ -88,16 +87,6 @@ rm "$OPENCLAW_DIST/openclaw-at-plugin.js"
 
 Then restart OpenClaw gateway.
 
-## File Structure
-
-```
-openclaw-at-plugin.js   — The plugin (single file, no dependencies)
-install.sh              — One-command installer (supports VERSION= parameter)
-package.json            — Version and metadata
-CHANGELOG.md            — Version history
-README.md               — This file
-```
-
 ## Privacy Note
 
 This plugin runs entirely in your browser. It does not send any data to external servers. Marked context is only injected into your local OpenClaw conversation via WebSocket.
@@ -107,10 +96,6 @@ This plugin runs entirely in your browser. It does not send any data to external
 - The plugin file in `dist/control-ui/` is overwritten on OpenClaw updates. Run the install command again after updating.
 - Long messages without spaces may overflow the chat area (CSS `overflow-x: auto` is applied for scroll).
 - Currently designed for the OpenClaw Control UI only; other UI surfaces may not support the DOM structure this plugin relies on.
-
-## License
-
-MIT — do whatever you want with it.
 
 ## Versioning
 
