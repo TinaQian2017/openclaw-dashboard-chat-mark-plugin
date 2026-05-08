@@ -2,9 +2,9 @@
 set -e
 
 VERSION="${VERSION:-main}"
-REPO="TinaQian2017/openclaw-at-plugin"
+REPO="TinaQian2017/openclaw-dashboard-chat-mark-plugin"
 
-echo "=== OpenClaw @ Plugin Installer ==="
+echo "=== OpenClaw Chat Mark Plugin Installer ==="
 echo "Version: $VERSION"
 
 # Find OpenClaw dist directory
