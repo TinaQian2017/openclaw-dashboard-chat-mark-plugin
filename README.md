@@ -215,9 +215,3 @@ rm "$OPENCLAW_DIST/openclaw-at-plugin.js"
 - **正式版本：** 使用 `VERSION=v1.0.0` 安装特定版本
 
 版本历史见 [CHANGELOG.md](./CHANGELOG.md)。
-
-## 联系方式
-
-有问题或建议？欢迎联系：
-
-- **微信**：YTQ_DC2019
