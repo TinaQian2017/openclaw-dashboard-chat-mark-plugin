@@ -1,6 +1,10 @@
-# OpenClaw @ Plugin
+# OpenClaw Chat Mark Plugin
 
-A browser-side plugin for OpenClaw Control UI that lets you mark individual chat messages as context and inject them into your conversations as reference material. There is no risk of hurting your OpenClaw by installing the plugin, so please feel free to try out! 
+Mark / bookmark / star specific chat messages from your OpenClaw conversations — and inject them as context into future messages.
+
+OpenClaw 标记收藏插件：标记、星标、收藏历史对话，自动注入到后续对话中作为上下文参考。
+
+A browser-side plugin for OpenClaw Control UI. Safe to install — it only modifies your local browser UI and sends no data to external servers. Try it risk-free!
 
 <img width="1948" height="1064" alt="20260507230013" src="https://github.com/user-attachments/assets/33319660-06e4-49d2-b473-4fa4bdef51f8" />
 
