@@ -1,4 +1,4 @@
-# OpenClaw Chat Mark Plugin
+# OpenClaw Dashboard Chat Mark Plugin
 
 Mark / bookmark / star specific chat messages from your OpenClaw conversations — and inject them as context into future messages.
 
