@@ -95,6 +95,9 @@ Restart the gateway to load the updated Control UI.
 Feel free to test the plugin and remove afterwards. Removing the plugin follows the same steps as install but in reverse.
 
 ```bash
+# Find your OpenClaw dist directory
+OPENCLAW_DIST=$(npm root -g)/openclaw/dist/control-ui
+
 # Remove script tag from index.html
 node -e "
 const fs = require('fs');
@@ -225,6 +228,9 @@ fi
 放心试用，如需卸载，执行安装步骤的反向操作即可。
 
 ```bash
+# Find your OpenClaw dist directory
+OPENCLAW_DIST=$(npm root -g)/openclaw/dist/control-ui
+
 # 从 index.html 中移除 script 标签
 node -e "
 const fs = require('fs');
