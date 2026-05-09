@@ -31,6 +31,13 @@ This lets you give the agent "live" context from specific points in your convers
 - **Right Panel** — shows all currently marked messages, click "Clear All Marks" to reset
 - **Auto-Inject** — on next send, all marked context is appended to your message automatically via WebSocket interception
 
+## Requirements
+
+- **Node.js** (required — the installer uses `npm root -g` to locate OpenClaw's directory)
+  - OpenClaw itself is installed via npm, so if you have OpenClaw, you already have Node.js
+- **Git Bash** on Windows (not CMD or PowerShell) — [download](https://git-scm.com/download/win)
+- **curl** — standard on Linux/macOS; Git Bash on Windows includes it
+
 ## Quick Install (one command)
 
 > **Windows users:** Open **Git Bash** (not CMD or PowerShell) and run the command below.
@@ -155,6 +162,13 @@ Agent 的原始回复
 - **标记 / 取消标记** — 点击 @ 切换消息的选中状态
 - **右侧面板** — 显示所有已标记的消息，点击 "Clear All Marks" 可重置
 - **自动注入** — 发送下一条消息时，所有已标记的上下文会通过 WebSocket 拦截自动追加到消息中
+
+## 环境要求
+
+- **Node.js**（必须——安装脚本使用 `npm root -g` 来定位 OpenClaw 目录）
+  - 由于 OpenClaw 本身通过 npm 安装，只要装了 OpenClaw 就肯定有 Node.js
+- **Windows 用户**需要使用 **Git Bash**（不是 CMD 或 PowerShell）——[点此下载 Git](https://git-scm.com/download/win)
+- **curl**——Linux/macOS 自带，Windows Git Bash 也自带
 
 ## 快速安装（一行命令）
 
