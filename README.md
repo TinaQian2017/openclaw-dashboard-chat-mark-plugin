@@ -133,6 +133,10 @@ This project uses [Semantic Versioning](https://semver.org/):
 
 See [CHANGELOG.md](./CHANGELOG.md) for version history.
 
+## Contact
+
+If you have questions or feedback, reach out via [LinkedIn](https://www.linkedin.com/in/yue-qian-0b7110102/).
+
 ---
 
 # 中文说明
@@ -261,3 +265,7 @@ rm "$OPENCLAW_DIST/openclaw-at-plugin.js"
 - **正式版本：** 使用 `VERSION=v1.0.0` 安装特定版本
 
 版本历史见 [CHANGELOG.md](./CHANGELOG.md)。
+
+## 联系方式
+
+如有问题或建议，欢迎通过 [LinkedIn](https://www.linkedin.com/in/yue-qian-0b7110102/) 联系。
