@@ -40,8 +40,7 @@ This lets you give the agent "live" context from specific points in your convers
 
 ## Quick Install (one command)
 
-> **Windows users:** Open **Git Bash** (not CMD or PowerShell) and run the command below.
-> If you don't have Git Bash, [install Git first](https://git-scm.com/download/win).
+> This works on **Linux**, **macOS**, and **Windows (Git Bash)**.
 
 ```bash
 # Install latest version (main branch)
@@ -50,8 +49,6 @@ curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat
 # Install a specific version (e.g., v1.0.0)
 VERSION=v1.0.0 curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/install.sh" | bash
 ```
-
-This works on **Linux**, **macOS**, and **Windows (Git Bash)**.
 
 The script will:
 1. Find your OpenClaw `dist/control-ui/` directory
@@ -172,8 +169,7 @@ Agent 的原始回复
 
 ## 快速安装（一行命令）
 
-> **Windows 用户：**请打开 **Git Bash**（不是 CMD 或 PowerShell），然后运行下方命令。
-> 如果还没有 Git Bash，请先 [安装 Git](https://git-scm.com/download/win)。
+> 该命令在 **Linux**、**macOS** 和 **Windows (Git Bash)** 上均可运行。
 
 ```bash
 # 安装最新版（main 分支）
@@ -182,8 +178,6 @@ curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat
 # 安装指定版本（如 v1.0.0）
 VERSION=v1.0.0 curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/install.sh" | bash
 ```
-
-该命令在 **Linux**、**macOS** 和 **Windows (Git Bash)** 上均可运行。
 
 安装脚本会自动：
 1. 定位你的 OpenClaw `dist/control-ui/` 目录
