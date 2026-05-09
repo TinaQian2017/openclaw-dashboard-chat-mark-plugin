@@ -43,10 +43,7 @@ This lets you give the agent "live" context from specific points in your convers
 > This works on **Linux**, **macOS**, and **Windows (Git Bash)**.
 
 ```bash
-# Install latest version (main branch)
-curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/install.sh" | bash
-
-# Install a specific version (e.g., v1.0.0)
+# Install latest version
 VERSION=v1.0.0 curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/install.sh" | bash
 ```
 
@@ -176,10 +173,7 @@ Agent 的原始回复
 > 该命令在 **Linux**、**macOS** 和 **Windows (Git Bash)** 上均可运行。
 
 ```bash
-# 安装最新版（main 分支）
-curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/install.sh" | bash
-
-# 安装指定版本（如 v1.0.0）
+# 安装最新版
 VERSION=v1.0.0 curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/install.sh" | bash
 ```
 
