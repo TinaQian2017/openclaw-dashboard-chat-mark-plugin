@@ -44,7 +44,7 @@ This lets you give the agent "live" context from specific points in your convers
 
 ```bash
 # Install latest version
-curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/v1.0.0/install.sh" | bash
+curl -sL "https://github.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/releases/download/v1.0.0/install.sh" | bash
 ```
 
 The script will:
@@ -176,7 +176,7 @@ Agent 的原始回复
 
 ```bash
 # 安装最新版
-curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/v1.0.0/install.sh" | bash
+curl -sL "https://github.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/releases/download/v1.0.0/install.sh" | bash
 ```
 
 安装脚本会自动：
