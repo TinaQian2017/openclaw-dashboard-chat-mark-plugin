@@ -128,8 +128,7 @@ This plugin runs entirely in your browser. It does not send any data to external
 
 This project uses [Semantic Versioning](https://semver.org/):
 
-- **Latest (dev):** Install from `main` branch — may be unstable
-- **Releases:** Use `VERSION=v1.0.0` to install a specific released version
+- **Releases:** Use `VERSION=v1.0.0` to install the latest released version
 
 See [CHANGELOG.md](./CHANGELOG.md) for version history.
 
@@ -261,8 +260,7 @@ rm "$OPENCLAW_DIST/openclaw-at-plugin.js"
 
 本项目采用 [语义化版本](https://semver.org/lang/zh-CN/)：
 
-- **最新开发版：** 从 `main` 分支安装 — 可能不稳定
-- **正式版本：** 使用 `VERSION=v1.0.0` 安装特定版本
+- **正式版本：** 使用 `VERSION=v1.0.0` 安装最新版本
 
 版本历史见 [CHANGELOG.md](./CHANGELOG.md)。
 
