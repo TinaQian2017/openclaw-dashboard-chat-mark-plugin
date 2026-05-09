@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERSION="${VERSION:-main}"
+VERSION="${VERSION:-v1.0.0}"
 REPO="TinaQian2017/openclaw-dashboard-chat-mark-plugin"
 
 echo "=== OpenClaw Chat Mark Plugin Installer ==="
@@ -17,12 +17,8 @@ fi
 
 echo "Found OpenClaw dist at: $DIST_DIR"
 
-# Determine download URL based on version
-if [ "$VERSION" = "main" ]; then
-  PLUGIN_URL="https://raw.githubusercontent.com/$REPO/main/openclaw-at-plugin.js"
-else
-  PLUGIN_URL="https://raw.githubusercontent.com/$REPO/$VERSION/openclaw-at-plugin.js"
-fi
+# All downloads go through GitHub Releases for download tracking
+PLUGIN_URL="https://github.com/$REPO/releases/download/$VERSION/openclaw-at-plugin.js"
 
 echo "Downloading plugin from: $PLUGIN_URL"
 curl -sL -o "$DIST_DIR/openclaw-at-plugin.js" "$PLUGIN_URL"
@@ -33,8 +29,7 @@ INDEX="$DIST_DIR/index.html"
 if grep -q 'openclaw-at-plugin.js' "$INDEX"; then
   echo "Script tag already present in index.html — skipping injection."
 else
-  # Use a portable replacement that works on both GNU sed and BSD sed (macOS)
-  NODE_SCRIPT="
+  node -e "
 const fs = require('fs');
 const path = process.argv[1];
 let content = fs.readFileSync(path, 'utf8');
@@ -45,8 +40,7 @@ if (!content.includes('openclaw-at-plugin.js')) {
 } else {
   console.log('Script tag already present — skipping.');
 }
-"
-  node -e "$NODE_SCRIPT" "$INDEX"
+" "$INDEX"
 fi
 
 echo ""
