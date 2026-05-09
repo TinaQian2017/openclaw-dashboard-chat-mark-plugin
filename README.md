@@ -66,7 +66,7 @@ echo "Plugin destination: $OPENCLAW_DIST"
 ### Step 2: Download the plugin file
 
 ```bash
-curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js"   "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/openclaw-at-plugin.js"
+curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js" "https://github.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/releases/download/${VERSION:-v1.0.0}/openclaw-at-plugin.js"
 ```
 
 ### Step 3: Inject the script tag into index.html
@@ -199,7 +199,7 @@ echo "Plugin destination: $OPENCLAW_DIST"
 ### 第二步：下载插件文件
 
 ```bash
-curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js"   "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/openclaw-at-plugin.js"
+curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js" "https://github.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/releases/download/${VERSION:-v1.0.0}/openclaw-at-plugin.js"
 ```
 
 ### 第三步：在 index.html 中注入 script 标签
