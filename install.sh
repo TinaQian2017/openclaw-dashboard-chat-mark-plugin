@@ -28,13 +28,25 @@ echo "Downloading plugin from: $PLUGIN_URL"
 curl -sL -o "$DIST_DIR/openclaw-at-plugin.js" "$PLUGIN_URL"
 echo "Plugin copied to: $DIST_DIR/openclaw-at-plugin.js"
 
-# Inject script tag into index.html
+# Inject script tag into index.html (cross-platform: works on Linux, macOS, Git Bash on Windows)
 INDEX="$DIST_DIR/index.html"
 if grep -q 'openclaw-at-plugin.js' "$INDEX"; then
   echo "Script tag already present in index.html — skipping injection."
 else
-  sed -i 's|<script|<script src="./openclaw-at-plugin.js"></script><script|' "$INDEX"
-  echo "Script tag injected into: $INDEX"
+  # Use a portable replacement that works on both GNU sed and BSD sed (macOS)
+  NODE_SCRIPT="
+const fs = require('fs');
+const path = process.argv[1];
+let content = fs.readFileSync(path, 'utf8');
+if (!content.includes('openclaw-at-plugin.js')) {
+  content = content.replace(/<script/g, '<script src=\"./openclaw-at-plugin.js\"></script><script');
+  fs.writeFileSync(path, content);
+  console.log('Script tag injected into: ' + path);
+} else {
+  console.log('Script tag already present — skipping.');
+}
+"
+  node -e "$NODE_SCRIPT" "$INDEX"
 fi
 
 echo ""

@@ -33,6 +33,9 @@ This lets you give the agent "live" context from specific points in your convers
 
 ## Quick Install (one command)
 
+> **Windows users:** Open **Git Bash** (not CMD or PowerShell) and run the command below.
+> If you don't have Git Bash, [install Git first](https://git-scm.com/download/win).
+
 ```bash
 # Install latest version (main branch)
 curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/install.sh" | bash
@@ -41,7 +44,9 @@ curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat
 VERSION=v1.0.0 curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/install.sh" | bash
 ```
 
-This will:
+This works on **Linux**, **macOS**, and **Windows (Git Bash)**.
+
+The script will:
 1. Find your OpenClaw `dist/control-ui/` directory
 2. Download the plugin file into it
 3. Inject the `<script>` tag into `index.html`
@@ -69,7 +74,14 @@ curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js"   "https://raw.githubusercont
 if grep -q 'openclaw-at-plugin.js' "$OPENCLAW_DIST/index.html"; then
   echo "Script tag already present — skipping."
 else
-  sed -i 's|<script|<script src="./openclaw-at-plugin.js"></script><script|'     "$OPENCLAW_DIST/index.html"
+  node -e "
+const fs = require('fs');
+const path = process.argv[1];
+let content = fs.readFileSync(path, 'utf8');
+content = content.replace(/<script/g, '<script src=\"./openclaw-at-plugin.js\"></script><script');
+fs.writeFileSync(path, content);
+console.log('Script tag injected.');
+" "$OPENCLAW_DIST/index.html"
 fi
 ```
 
@@ -83,9 +95,16 @@ Feel free to test the plugin and remove afterwards. Removing the plugin follows 
 
 ```bash
 # Remove script tag from index.html
-sed -i 's|<script src="./openclaw-at-plugin.js"></script>|{'   "$OPENCLAW_DIST/index.html"
+node -e "
+const fs = require('fs');
+const path = process.argv[1];
+let content = fs.readFileSync(path, 'utf8');
+content = content.replace(/<script src=\".\/openclaw-at-plugin.js\"><\/script>/g, '');
+fs.writeFileSync(path, content);
+console.log('Script tag removed.');
+" "$OPENCLAW_DIST/index.html"
 
-# Delete plugin file, this is optional
+# Delete plugin file (optional)
 rm "$OPENCLAW_DIST/openclaw-at-plugin.js"
 ```
 
@@ -139,6 +158,9 @@ Agent 的原始回复
 
 ## 快速安装（一行命令）
 
+> **Windows 用户：**请打开 **Git Bash**（不是 CMD 或 PowerShell），然后运行下方命令。
+> 如果还没有 Git Bash，请先 [安装 Git](https://git-scm.com/download/win)。
+
 ```bash
 # 安装最新版（main 分支）
 curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/install.sh" | bash
@@ -146,6 +168,8 @@ curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat
 # 安装指定版本（如 v1.0.0）
 VERSION=v1.0.0 curl -sL "https://raw.githubusercontent.com/TinaQian2017/openclaw-dashboard-chat-mark-plugin/main/install.sh" | bash
 ```
+
+该命令在 **Linux**、**macOS** 和 **Windows (Git Bash)** 上均可运行。
 
 安装脚本会自动：
 1. 定位你的 OpenClaw `dist/control-ui/` 目录
@@ -175,7 +199,14 @@ curl -sL -o "$OPENCLAW_DIST/openclaw-at-plugin.js"   "https://raw.githubusercont
 if grep -q 'openclaw-at-plugin.js' "$OPENCLAW_DIST/index.html"; then
   echo "Script tag already present — skipping."
 else
-  sed -i 's|<script|<script src="./openclaw-at-plugin.js"></script><script|'     "$OPENCLAW_DIST/index.html"
+  node -e "
+const fs = require('fs');
+const path = process.argv[1];
+let content = fs.readFileSync(path, 'utf8');
+content = content.replace(/<script/g, '<script src=\"./openclaw-at-plugin.js\"></script><script');
+fs.writeFileSync(path, content);
+console.log('Script tag injected.');
+" "$OPENCLAW_DIST/index.html"
 fi
 ```
 
@@ -189,7 +220,14 @@ fi
 
 ```bash
 # 从 index.html 中移除 script 标签
-sed -i 's|<script src="./openclaw-at-plugin.js"></script>|{'   "$OPENCLAW_DIST/index.html"
+node -e "
+const fs = require('fs');
+const path = process.argv[1];
+let content = fs.readFileSync(path, 'utf8');
+content = content.replace(/<script src=\".\/openclaw-at-plugin.js\"><\/script>/g, '');
+fs.writeFileSync(path, content);
+console.log('Script tag removed.');
+" "$OPENCLAW_DIST/index.html"
 
 # 删除插件文件（可选）
 rm "$OPENCLAW_DIST/openclaw-at-plugin.js"
